@@ -9,17 +9,19 @@
 
   Mandar logs de cada uno de los pasos de la llamada
  */
-const getRequest = () => {
+const getRequest = async () => {
     try {
-        const response = fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
     const json = await response.json()
 
     return json;
-    } catch (error) {
+    } catch ((error) => {
         console.error(error);
-    }
+    })
     
-    let respoke
+    let responke = getRequest().then((data) => data).catch((error) => {
+        console.error(error);
+    })
 }
 
 
@@ -32,10 +34,10 @@ const getRequest = () => {
 
  // =========================================================
 
- /**
-  Ejercicio #2
-  /* Dada una funcion que suma numeros desde 0 al limite. Implementa una solucion
- para optimizar las llamadas en caso de que sean repetitivas
+ 
+/* Ejercicio #2
+ Dada una funcion que suma numeros desde 0 al limite. Implementa una solucion
+ para optimizar las llamadas en caso de que sean repetitivas */
 
 const sumNumbers = (limit) => {
   let sum = 0;
@@ -45,7 +47,7 @@ const sumNumbers = (limit) => {
   } 
   
   return sum; 
-};*/
+};
 
-// console.log(sumNumbers(100000000));
+console.log(sumNumbers(1000));
 // console.log(sumNumbers(100000000));
