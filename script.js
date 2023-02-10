@@ -15,9 +15,9 @@ const getRequest = async () => {
     const json = await response.json()
 
     return json;
-    } catch ((error) => {
+    } catch {(error) => {
         console.error(error);
-    })
+    }}
     
     let responke = getRequest().then((data) => data).catch((error) => {
         console.error(error);
